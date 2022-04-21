@@ -23,7 +23,7 @@ class home : Fragment() {
         }
         val btnItems = view.findViewById<ImageView>(R.id.itemsimage)
         btnItems.setOnClickListener {
-
+            findNavController().navigate(R.id.action_home_to_itempage)
         }
         return view
     }

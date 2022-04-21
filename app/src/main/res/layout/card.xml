@@ -6,8 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    app:cardBackgroundColor="#00FFFFFF"
-    tools:context=".Card" >
+    app:cardBackgroundColor="#00FFFFFF">
 
     <LinearLayout
         android:id="@+id/layoutCard"

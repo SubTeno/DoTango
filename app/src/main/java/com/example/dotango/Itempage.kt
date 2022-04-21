@@ -1,42 +1,38 @@
 package com.example.dotango
 
 import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
-import com.google.gson.JsonIOException
+import org.json.JSONObject
 import java.io.IOException
 import java.nio.charset.Charset
 
-class Heropage : Fragment() {
+
+class Itempage : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_heropage, container, false)
-        try{
 
-            val json = getJsonString("heroes.json")!!
-            val heroes = Gson().fromJson(json, Heroes::class.java)
+        val view = inflater.inflate(R.layout.fragment_itempage, container, false)
+        val jsonObject = getJsonString("items.json")!!
+        val items = Gson().fromJson(jsonObject, Items::class.java)
 
-            val rcycview = view.findViewById<RecyclerView>(R.id.rcycview)
+        val rcycview = view.findViewById<RecyclerView>(R.id.rcycviewItem)
 
-            rcycview.layoutManager = GridLayoutManager(view.context, 3)
-            val itemAdapter = rcycHero(view.context, heroes)
-            rcycview.adapter = itemAdapter
-
-        }catch (e : JsonIOException){
-            e.printStackTrace()
-        }
+        rcycview.layoutManager = GridLayoutManager(view.context, 3)
+        val itemAdapter = rcycItem(view.context, items)
+        rcycview.adapter = itemAdapter
 
         return view
     }
-
 
     private fun getJsonString(fileName: String): String?{
         val json: String?
@@ -50,11 +46,9 @@ class Heropage : Fragment() {
             json = buffer?.let { String(it, charset) }
 
         }catch(ex: IOException){
-        ex.printStackTrace()
+            ex.printStackTrace()
             return null
         }
         return json
     }
-
-
 }

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_home_to_heropage"
             app:destination="@id/heropage" />
+        <action
+            android:id="@+id/action_home_to_itempage"
+            app:destination="@id/itempage" />
     </fragment>
     <fragment
         android:id="@+id/heropage"
@@ -27,4 +30,18 @@
         android:name="com.example.dotango.Herodetail"
         android:label="fragment_herodetail"
         tools:layout="@layout/fragment_herodetail" />
+    <fragment
+        android:id="@+id/itempage"
+        android:name="com.example.dotango.Itempage"
+        android:label="fragment_itempage"
+        tools:layout="@layout/fragment_itempage" >
+        <action
+            android:id="@+id/action_itempage_to_itemdetail"
+            app:destination="@id/itemdetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemdetail"
+        android:name="com.example.dotango.itemdetail"
+        android:label="fragment_itemdetail"
+        tools:layout="@layout/fragment_itemdetail" />
 </navigation>
