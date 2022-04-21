@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.dotango.home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_heropage"
+            app:destination="@id/heropage" />
+    </fragment>
+    <fragment
+        android:id="@+id/heropage"
+        android:name="com.example.dotango.Heropage"
+        android:label="fragment_heropage"
+        tools:layout="@layout/fragment_heropage" >
+        <action
+            android:id="@+id/action_heropage_to_herodetail"
+            app:destination="@id/herodetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/herodetail"
+        android:name="com.example.dotango.Herodetail"
+        android:label="fragment_herodetail"
+        tools:layout="@layout/fragment_herodetail" />
+</navigation>
